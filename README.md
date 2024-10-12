@@ -22,7 +22,7 @@
 
 ### Steps to Run the Python Script
 1. Clone the repository or download the `main.py` file.
-2. Open your terminal or command prompt.
-3. Navigate to the directory where the script is located.
-4. Run the script using the following command:
+2. Run ![Cryptic Password Manager File](main.py)
+3. Save A Password
+4. All Done!
 
