@@ -47,49 +47,49 @@ def update_password_list():
         widget.destroy()
 
     for site, details in passwords.items():
-        frame = tk.Frame(password_frame)
-        frame.pack(fill='x', pady=5)
+        frame = tk.Frame(password_frame, bg='#f9f9f9', relief='groove', borderwidth=2)
+        frame.pack(fill='x', pady=5, padx=5)
 
-        site_label = tk.Label(frame, text=f"Site: {site}", anchor='w')
-        site_label.pack(side='left', expand=True, fill='x')
+        site_label = tk.Label(frame, text=f"Site: {site}", anchor='w', font=('Arial', 10, 'bold'), bg='#f9f9f9')
+        site_label.pack(side='left', expand=True, fill='x', padx=10)
 
-        username_label = tk.Label(frame, text=f"Username: {details['username']}", anchor='w')
+        username_label = tk.Label(frame, text=f"Username: {details['username']}", anchor='w', font=('Arial', 10), bg='#f9f9f9')
         username_label.pack(side='left', expand=True, fill='x')
 
-        password_label = tk.Label(frame, text=f"Password: {details['password']}", anchor='w')
+        password_label = tk.Label(frame, text=f"Password: {details['password']}", anchor='w', font=('Arial', 10), bg='#f9f9f9')
         password_label.pack(side='left', expand=True, fill='x')
 
-        delete_button = tk.Button(frame, text="Delete", command=lambda s=site: delete_password(s))
-        delete_button.pack(side='right')
+        delete_button = tk.Button(frame, text="Delete", command=lambda s=site: delete_password(s), bg='#e74c3c', fg='white', width=10)
+        delete_button.pack(side='right', padx=10, pady=5)
 
 # GUI setup
 root = tk.Tk()
 root.title("Cryptic Password Manager")
-root.geometry('500x400')
-root.configure(bg='#f5f5f5')
+root.geometry('500x500')
+root.configure(bg='#ecf0f1')
 
 # Global dictionary to hold passwords
 passwords = load_passwords()
 
 # Header
-header = tk.Label(root, text="Cryptic Password Manager", font=('Arial', 18, 'bold'), bg='#f5f5f5', fg='#333')
-header.pack(pady=10)
+header = tk.Label(root, text="Cryptic Password Manager", font=('Arial', 18, 'bold'), bg='#ecf0f1', fg='#2c3e50')
+header.pack(pady=20)
 
 # Add password section
-form_frame = tk.Frame(root, bg='#f5f5f5')
+form_frame = tk.Frame(root, bg='#ecf0f1')
 form_frame.pack(pady=10)
 
-site_label = tk.Label(form_frame, text="Website:", bg='#f5f5f5')
+site_label = tk.Label(form_frame, text="Website:", bg='#ecf0f1')
 site_label.grid(row=0, column=0, padx=10, pady=5)
 site_entry = tk.Entry(form_frame, width=30)
 site_entry.grid(row=0, column=1, padx=10, pady=5)
 
-username_label = tk.Label(form_frame, text="Username:", bg='#f5f5f5')
+username_label = tk.Label(form_frame, text="Username:", bg='#ecf0f1')
 username_label.grid(row=1, column=0, padx=10, pady=5)
 username_entry = tk.Entry(form_frame, width=30)
 username_entry.grid(row=1, column=1, padx=10, pady=5)
 
-password_label = tk.Label(form_frame, text="Password:", bg='#f5f5f5')
+password_label = tk.Label(form_frame, text="Password:", bg='#ecf0f1')
 password_label.grid(row=2, column=0, padx=10, pady=5)
 password_entry = tk.Entry(form_frame, width=30)
 password_entry.grid(row=2, column=1, padx=10, pady=5)
@@ -98,7 +98,7 @@ add_button = tk.Button(root, text="Add Password", command=add_password, bg='#349
 add_button.pack(pady=10)
 
 # Password list section
-password_frame = tk.Frame(root, bg='#f5f5f5')
+password_frame = tk.Frame(root, bg='#ecf0f1')
 password_frame.pack(pady=10, fill='both', expand=True)
 
 # Load and display existing passwords
